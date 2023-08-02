@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bq3i2baahqg4m"]
+
+[ext_resource type="Script" path="res://scenes/floating_rock.gd" id="1_lfi1s"]
+[ext_resource type="Texture2D" uid="uid://c4p6kltlm0i0a" path="res://art/fantasy_ [version 2.0]/tf_darkdimension_updated2020/100/floatingrocks_1.png" id="1_lvyrh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch0ix"]
+atlas = ExtResource("1_lvyrh")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lhyg"]
+atlas = ExtResource("1_lvyrh")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayr6u"]
+atlas = ExtResource("1_lvyrh")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6q45t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch0ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lhyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayr6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lhyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch0ix")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+script = ExtResource("1_lfi1s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6q45t")
+animation = &"idle"
