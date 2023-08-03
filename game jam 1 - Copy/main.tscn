@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cia1lflwicn0h"]
+[gd_scene load_steps=8 format=3 uid="uid://cia1lflwicn0h"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qndub"]
 [ext_resource type="TileSet" uid="uid://dqjt1ty44cv1k" path="res://main.tres" id="2_u8v25"]
@@ -9,6 +9,9 @@
 size = Vector2(30, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uurfv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kv74"]
+size = Vector2(16, 10)
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -73,7 +76,14 @@ position = Vector2(389, -62)
 shape = SubResource("RectangleShape2D_uurfv")
 
 [node name="coyote" parent="." instance=ExtResource("4_ii3yb")]
-position = Vector2(496, 297)
+position = Vector2(676, 427)
+
+[node name="cave" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cave"]
+position = Vector2(481, 181)
+shape = SubResource("RectangleShape2D_1kv74")
 
 [connection signal="body_entered" from="forest_lvl" to="." method="_on_forest_lvl_body_entered"]
 [connection signal="body_entered" from="center" to="." method="_on_center_body_entered"]
+[connection signal="body_entered" from="cave" to="." method="_on_cave_body_entered"]

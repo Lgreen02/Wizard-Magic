@@ -4,8 +4,8 @@ var next_scene = "none"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if global.prev_scene == "west":
-		$Player.position.x = -34
-		$Player.position.y = -7
+		$Player.position.x = 25
+		$Player.position.y = 255
 	elif global.prev_scene == "south":
 		$Player.position.x = 480
 		$Player.position.y = 525

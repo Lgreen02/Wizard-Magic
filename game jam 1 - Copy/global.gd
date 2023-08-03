@@ -5,6 +5,9 @@ var prev_scene = "none"
 var current_dir = "right"
 var double_jump = false
 var talked_to_master = false
+var can_fireball = false
+
+var interacting = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
