@@ -1,0 +1,46 @@
+~ start
+
+if global.talked_to_hunter == false:
+	if global.mother_tree == false:
+		Hunter: [[Greetings|Hello]]. By the look of your outfit, you're not from here are you?
+		Hunter: Care to explain yourself?
+		- I mean no harm, I am simply passing by.
+			Hunter: Hmph. I'll be the judge of that.
+			Hunter: This tree here was where my mother was buried, and don't take me for a fool.
+			Hunter: I saw you burn that tree not just two seconds ago. Burn this one and you'll pay.
+			- I'll just be on my way.
+				Hunter: You better be.
+				set global.talked_to_hunter = true
+			- Do you even know who you're talking to?
+				Hunter: No, and I'd like to keep it that way.
+				Hunter: Scram.
+				set global.talked_to_hunter = true
+			- Make me.
+				Hunter: I'd like to see you try.
+				set global.talked_to_hunter = true
+				=> END
+			=> END
+		- I'm testing out my newly learned spell! Wanna see?
+			Hunter: You better choose your next few actions carefully.
+			Hunter: I saw you demonstrate your new little spell not two seconds ago, and I'd rather not see it again.
+			Hunter: This tree here was where my mother was buried, and don't take me for a fool.
+			Hunter: Burn this one and you'll pay.
+			- I'll just be on my way.
+				Hunter: You better be.
+				set global.talked_to_hunter = true
+				=> END
+			- Don't test me, lady.
+				Hunter: I'd like to see you try.
+				set global.talked_to_hunter = true
+				=> END
+			=> END
+	if global.mother_tree == true:
+		Hunter: If only you knew the rage I felt towards you.
+		set global.talked_to_hunter = true
+		=> END
+else if global.mother_tree == true:
+	Hunter: If only you knew the rage I felt towards you.
+	=> END
+else:
+	Hunter: I have no more business with you.
+	=> END

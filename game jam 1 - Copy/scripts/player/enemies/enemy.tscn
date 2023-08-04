@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c54s4hqiiv6t4"]
+[gd_scene load_steps=28 format=3 uid="uid://c54s4hqiiv6t4"]
 
 [ext_resource type="Script" path="res://scripts/player/enemies/enemy.gd" id="1_1vnd6"]
 [ext_resource type="Texture2D" uid="uid://do6pwn6ifytqj" path="res://scripts/player/enemies/Idle.png" id="1_cqitt"]
@@ -205,11 +205,11 @@ animation = &"death"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a4cqi"]
 animation = &"hit"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2jjdk"]
+animation = &"idle"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0gi0r"]
 animation = &"walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x2qv6"]
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_arrla"]
 
@@ -219,16 +219,26 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kwo4v"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6cy0n"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_lr12h"]
-states/Start/position = Vector2(164, 126)
+states/Start/position = Vector2(7, 82)
 states/death/node = SubResource("AnimationNodeAnimation_rs64u")
 states/death/position = Vector2(541, 211)
 states/hit/node = SubResource("AnimationNodeAnimation_a4cqi")
 states/hit/position = Vector2(449.677, 9.8869)
+states/idle/node = SubResource("AnimationNodeAnimation_2jjdk")
+states/idle/position = Vector2(166.677, 147.887)
 states/walk/node = SubResource("AnimationNodeAnimation_0gi0r")
-states/walk/position = Vector2(334.677, 71.8869)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_x2qv6"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_arrla"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_utypw"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_vt551")]
+states/walk/position = Vector2(260.677, 82)
+transitions = ["walk", "death", SubResource("AnimationNodeStateMachineTransition_arrla"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_utypw"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_vt551"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_kwo4v"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_6cy0n")]
 graph_offset = Vector2(-317.323, -24.1131)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u65pg"]
+radius = 233.174
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("hit_state", "flip_node")]
 position = Vector2(0, -1)
@@ -240,7 +250,7 @@ flip_node = NodePath("Sprite2D")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(240, 1057)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_dloua")
+texture = ExtResource("1_cqitt")
 flip_h = true
 hframes = 4
 
@@ -286,5 +296,15 @@ can_move = false
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
 wait_time = 0.25
 
+[node name="Detection" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(234, 1060)
+shape = SubResource("CircleShape2D_u65pg")
+
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

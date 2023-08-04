@@ -7,6 +7,7 @@ class_name GroundState
 @export var jump_animation : String = "jump"
 @export var attack_state : State
 @export var attack_node : String = "attack1"
+@export var fireball_node : String = "fireball"
 
 @onready var buffer_timer : Timer = $BufferTimer
 
@@ -15,10 +16,17 @@ func state_process(delta):
 		next_state = air_state
 
 func state_input(event : InputEvent):
-	if(event.is_action_pressed("fireball")):
+	if(event.is_action_pressed("jump")):
 		jump()
 	if(event.is_action_pressed("attack")):
 		attack()
+	if(event.is_action_pressed("cast")):
+		print(global.player_xp)
+		fireball()
+
+func fireball():
+	next_state = attack_state
+	playback.travel(fireball_node)
 
 func jump():
 	character.velocity.y = jump_velocity

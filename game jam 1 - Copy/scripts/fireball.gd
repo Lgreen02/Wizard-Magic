@@ -34,3 +34,6 @@ func _physics_process(delta):
 		if collision.get_collider().has_method("enemy"):
 			collision.get_collider().die()
 		
+
+func cast():
+	pass

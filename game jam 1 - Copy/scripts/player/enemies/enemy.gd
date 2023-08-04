@@ -24,14 +24,24 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	if direction && state_machine.check_if_can_move():
-		velocity.x = direction.x * movement_speed
-	elif state_machine.current_state != hit_state:
-		velocity.x = move_toward(velocity.x, 0, movement_speed)
-	
 	move_and_slide()
 
 func update_animation_parameters():
 	animation_tree.set("parameters/move/blend_position", direction.x)
 
 
+
+
+func _on_detection_body_entered(body: Node2D) -> void:
+	print("Enter Enemey")
+#	if direction && state_machine.check_if_can_move():
+#		velocity.x = direction.x * movement_speed
+#	elif state_machine.current_state != hit_state:
+#		velocity.x = move_toward(velocity.x, 0, movement_speed)
+	pass # Replace with function body.
+
+
+func _on_detection_body_exited(body: Node2D) -> void:
+	print("Exit Enemy")
+	
+	pass # Replace with function body.

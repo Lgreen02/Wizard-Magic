@@ -24,7 +24,7 @@ func _physics_process(delta):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"))
 	
 func player_movement(delta):
-	if Input.is_action_just_pressed("fireball") and can_attack:
+	if Input.is_action_just_pressed("cast") and can_attack:
 		can_attack = false
 		shoot_fireball()
 	if Input.is_action_pressed("right"):
@@ -53,7 +53,7 @@ func player_movement(delta):
 		velocity.y = 0
 	move_and_slide()
 func _input(event):
-	if event.is_action_pressed("fireball") and can_attack:
+	if event.is_action_pressed("cast") and can_attack:
 		attack_ip = true
 		$fireball_cooldown.start()
 		var projectile_instance = fireball.instantiate()
@@ -96,9 +96,6 @@ func shoot_fireball():
 	print("SHOOT")
 func player():
 	pass
-	
-
-
 
 
 func _on_fireball_cooldown_timeout():

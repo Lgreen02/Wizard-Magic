@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqhk63wy8u8l8"]
+
+[ext_resource type="Script" path="res://scenes/UI.gd" id="1_fi87e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_feh7s"]
+resource_local_to_scene = true
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_fi87e")
+
+[node name="Health" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="karma" type="Label" parent="Health"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 5.375
+anchor_bottom = 0.65
+offset_left = 4.0
+offset_right = -1.52588e-05
+text = "Karma: "
+
+[node name="amount" type="Label" parent="Health"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 6.775
+anchor_bottom = 2.218
+offset_left = 68.0
+offset_top = 1.0
+offset_right = -20.0
+offset_bottom = -61.72
+grow_horizontal = 2
+text = "1"
+label_settings = SubResource("LabelSettings_feh7s")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_top = 0.045
+anchor_right = 0.196
+anchor_bottom = 0.087
+offset_right = 0.543991
+offset_bottom = -0.216

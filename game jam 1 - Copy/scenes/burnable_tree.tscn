@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://unx31khsi2op"]
+
+[ext_resource type="Script" path="res://scenes/burnable_tree.gd" id="1_032e2"]
+[ext_resource type="Texture2D" uid="uid://cny51eiuuvtyw" path="res://Decors.png" id="2_4ui3q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u07v7"]
+radius = 17.775
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sipex"]
+size = Vector2(69, 100)
+
+[node name="burnable_tree" type="StaticBody2D"]
+script = ExtResource("1_032e2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18, -2)
+scale = Vector2(1.52, 3.09)
+shape = SubResource("CircleShape2D_u07v7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(0.94, 1)
+texture = ExtResource("2_4ui3q")
+hframes = 2
+region_rect = Rect2(96.3449, 21.4417, 15.2943, 26.4464)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(18, -6)
+shape = SubResource("RectangleShape2D_sipex")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

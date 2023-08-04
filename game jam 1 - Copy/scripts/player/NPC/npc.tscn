@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7px6v75t2ybb"]
+[gd_scene load_steps=11 format=3 uid="uid://c7px6v75t2ybb"]
 
 [ext_resource type="Script" path="res://scripts/player/NPC/npc.gd" id="1_q127r"]
 [ext_resource type="Texture2D" uid="uid://cpey4w7xytwfj" path="res://scripts/player/NPC/EVil Wizard 2/Sprites/Idle.png" id="2_fxbsm"]
@@ -79,6 +79,9 @@ states/idle/node = SubResource("AnimationNodeAnimation_kvrme")
 states/idle/position = Vector2(434, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jt1yn")]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2o1g"]
+radius = 53.8516
+
 [node name="NPC" type="CharacterBody2D"]
 position = Vector2(0, -40)
 collision_layer = 2
@@ -104,3 +107,15 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_46xg1")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="master_detection" type="Area2D" parent="."]
+scale = Vector2(1.145, 1.145)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="master_detection"]
+position = Vector2(1, -17)
+shape = SubResource("CircleShape2D_l2o1g")
+
+[connection signal="area_entered" from="master_detection" to="." method="_on_master_detection_area_entered"]
+[connection signal="area_exited" from="master_detection" to="." method="_on_master_detection_area_exited"]
