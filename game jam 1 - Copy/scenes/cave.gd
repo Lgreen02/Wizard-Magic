@@ -27,31 +27,32 @@ func handle_dialogue():
 		elif elly_talk:
 			if has_skelly and has_bonny:
 				has_elly = true
-				DialogueManager.show_example_dialogue_balloon(load("res://dialogue/elly_d.dialogue"))
 			else:
 				has_skelly = false
 				has_bonny = false
+			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/elly_d.dialogue"))
 		elif letonne_talk:
 			if has_skelly and has_bonny and has_trey and has_elly:
 				has_letonne = true
 				global.can_fireball = true
-				DialogueManager.show_example_dialogue_balloon(load("res://dialogue/letonne_d.dialogue"))
 			else:
 				has_skelly = false
 				has_bonny = false
 				has_trey = false
 				has_elly = false
+			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/letonne_d.dialogue"))
 			
-		elif bonny_talk and has_skelly:
-			has_bonny = true
+		elif bonny_talk:
+			if has_skelly:
+				has_bonny = true
 			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/bonny_d.dialogue"))
 		elif trey_talk:
 			if has_skelly and has_bonny:
 				has_trey = true
-				DialogueManager.show_example_dialogue_balloon(load("res://dialogue/trey_d.dialogue"))
 			else:
 				has_skelly = false
 				has_bonny = false
+			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/trey_d.dialogue"))
 		elif sign_read:
 			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/sign_d.dialogue"))
 func _on_skelly_body_area_entered(area):

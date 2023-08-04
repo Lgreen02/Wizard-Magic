@@ -1,5 +1,7 @@
 ~ this_is_a_node_title
-
-Bonny: Hello, I'm Bonny
+if !has_bonny:
+	Bonny: ...
+if has_bonny:
+	Bonny: Hello, I'm Bonny
 
 => END

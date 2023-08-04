@@ -1,6 +1,6 @@
 extends Node2D
 var next_scene = "none"
-
+var sign_read = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if global.prev_scene == "west":
@@ -19,6 +19,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	change_scenes()
+	if sign_read and Input.is_action_just_pressed("interact"):
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/sign_center.dialogue"))
+		
+		return
 
 
 func _on_area_2d_body_entered(body):
@@ -51,3 +55,13 @@ func _on_east_body_entered(body):
 	if body.has_method("player"):
 		next_scene = "east"
 		global.transition_scene = true
+
+
+func _on_sign_area_entered(area):
+	print("entered")
+	print(global.interacting)
+	sign_read = true
+
+
+func _on_sign_area_exited(area):
+	sign_read = false

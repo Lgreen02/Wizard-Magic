@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://bt4fps6etyvb8"
+path="res://.godot/imported/skelly_dead.dialogue-884b54e1b05196fac052e4467148b434.tres"
+
+[deps]
+
+source_file="res://dialogue/skelly_dead.dialogue"
+dest_files=["res://.godot/imported/skelly_dead.dialogue-884b54e1b05196fac052e4467148b434.tres"]
+
+[params]
+
+defaults=true

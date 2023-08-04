@@ -1,5 +1,7 @@
 ~ this_is_a_node_title
-
-Letonne: I will now bestoy upon you the knowledge of fire
+if !has_letonne:
+	Letonne: ...
+if has_letonne:
+	Letonne: I will now bestoy upon you the knowledge of fire
 
 => END
