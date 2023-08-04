@@ -5,7 +5,8 @@ var prev_scene = "none"
 var current_dir = "right"
 var double_jump = true
 var talked_to_master = false
-
+var can_fireball = false
+var interacting = false
 var talked_to_hunter = false
 
 var in_range = false

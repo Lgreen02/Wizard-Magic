@@ -53,7 +53,7 @@ func player_movement(delta):
 		velocity.y = 0
 	move_and_slide()
 func _input(event):
-	if event.is_action_pressed("cast") and can_attack:
+	if event.is_action_pressed("cast") and can_attack and global.can_fireball:
 		attack_ip = true
 		$fireball_cooldown.start()
 		var projectile_instance = fireball.instantiate()
