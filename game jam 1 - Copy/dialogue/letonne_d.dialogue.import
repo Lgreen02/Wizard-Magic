@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://bjabb7njdadbk"
+path="res://.godot/imported/letonne_d.dialogue-e6bc5e2b706b59662ade73fa4047139f.tres"
+
+[deps]
+
+source_file="res://dialogue/letonne_d.dialogue"
+dest_files=["res://.godot/imported/letonne_d.dialogue-e6bc5e2b706b59662ade73fa4047139f.tres"]
+
+[params]
+
+defaults=true

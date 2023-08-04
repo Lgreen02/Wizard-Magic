@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://csud1xqu4h7ko"
+path="res://.godot/imported/sign_center.dialogue-57913eaf1c1b0e4558b2bc021cd99418.tres"
+
+[deps]
+
+source_file="res://dialogue/sign_center.dialogue"
+dest_files=["res://.godot/imported/sign_center.dialogue-57913eaf1c1b0e4558b2bc021cd99418.tres"]
+
+[params]
+
+defaults=true

@@ -15,6 +15,7 @@ func _process(delta):
 		queue_free()
 
 func _physics_process(delta):
+
 	if direction == "right":
 		distance = Vector2.RIGHT * 100 * delta
 	elif direction == "left":

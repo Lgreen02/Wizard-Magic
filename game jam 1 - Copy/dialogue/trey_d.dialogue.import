@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://d3exr3ddvqssl"
+path="res://.godot/imported/trey_d.dialogue-1246a00514535d3190c66ffe3a298cd8.tres"
+
+[deps]
+
+source_file="res://dialogue/trey_d.dialogue"
+dest_files=["res://.godot/imported/trey_d.dialogue-1246a00514535d3190c66ffe3a298cd8.tres"]
+
+[params]
+
+defaults=true

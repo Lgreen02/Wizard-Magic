@@ -11,7 +11,7 @@ var can_attack = true
 @onready var projectile_position_left = $projectile_position_left
 @onready var game = get_tree().current_scene
 
-
+var current_dialogue = "none"
 var fireball =  preload("res://scenes/fireball.tscn")
 
 func _ready():
@@ -19,9 +19,9 @@ func _ready():
 func _physics_process(delta):
 	
 	player_movement(delta)
-	if sign_in_range:
-		if Input.is_action_just_pressed("interact"):
-			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"))
+	#if sign_in_range:
+	#	if Input.is_action_just_pressed("interact"):
+	#		DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"))
 	
 func player_movement(delta):
 	if Input.is_action_just_pressed("cast") and can_attack:
@@ -96,7 +96,11 @@ func shoot_fireball():
 	print("SHOOT")
 func player():
 	pass
+	
 
+
+func handle_dialogue():
+	pass
 
 func _on_fireball_cooldown_timeout():
 	$fireball_cooldown.stop()
@@ -105,11 +109,17 @@ func _on_fireball_cooldown_timeout():
 
 
 func _on_interaction_area_body_entered(body):
+	current_dialogue = body
+	#print(body)
+	
+	global.interacting = true
 	if body.has_method("signs"):
 		sign_in_range = true
-	print(sign_in_range)
+	#print(sign_in_range)
 
 
 func _on_interaction_area_body_exited(body):
-	if body.has_method("sign"):
+	current_dialogue = null
+	global.interacting = false
+	if body.has_method("signs"):
 		sign_in_range = false
