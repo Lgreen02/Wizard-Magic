@@ -11,6 +11,7 @@ var fireball =  preload("res://scenes/fireball2d.tscn")
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2 = Vector2.ZERO
 var npc_in_range = false
+var end_stage = false
 
 signal facing_direction_changed(facing_right : bool)
 
@@ -43,7 +44,10 @@ func _physics_process(delta: float) -> void:
 	
 	if npc_in_range == true:
 		if Input.is_action_just_pressed("interact"):
-			print("Interact button worked")
+			print("Interact button worked for NPC")
+	if end_stage == true:
+		if Input.is_action_just_pressed("interact"):
+			print("Interact button worked for Ending")
 	
 	move_and_slide()
 	update_animation_parameters()
@@ -78,6 +82,9 @@ func _on_detection_area_body_entered(body):
 		print("in range worked")
 		npc_in_range = true
 		global.in_range = true
+	if body.has_method("ending"):
+		print("in range to end")
+		end_stage = true
 
 
 func _on_detection_area_body_exited(body):

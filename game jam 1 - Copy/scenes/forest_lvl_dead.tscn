@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://1rvvkebfbxxk"]
+[gd_scene load_steps=8 format=3 uid="uid://ius2yjnp0gt4"]
 
 [ext_resource type="Script" path="res://scripts/forest_lvl.gd" id="1_6cb4y"]
-[ext_resource type="TileSet" uid="uid://bnyyijtbmtrsy" path="res://scenes/forest_lvl_dead.tres" id="2_0ae47"]
-[ext_resource type="PackedScene" uid="uid://cm027dvabxxrt" path="res://scenes/skeleton.tscn" id="5_1lf48"]
+[ext_resource type="TileSet" uid="uid://bx16qevqkdf7k" path="res://scenes/forest_lvl_dead.tres" id="2_0ae47"]
+[ext_resource type="PackedScene" path="res://scenes/skeleton.tscn" id="5_1lf48"]
 [ext_resource type="PackedScene" uid="uid://d17mqaiprih6m" path="res://player.tscn" id="7_cbc1i"]
 [ext_resource type="PackedScene" uid="uid://iweocd5kfje" path="res://scenes/forest_sign.tscn" id="8_snfmf"]
 

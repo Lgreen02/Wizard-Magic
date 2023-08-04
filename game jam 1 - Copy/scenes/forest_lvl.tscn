@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dulpkwxuq6drm"]
+[gd_scene load_steps=18 format=3 uid="uid://dulpkwxuq6drm"]
 
 [ext_resource type="Script" path="res://scripts/forest_lvl.gd" id="1_oy1hi"]
 [ext_resource type="Texture2D" uid="uid://cssvx81ts43ve" path="res://art/fantasy_ [version 2.0]/fantasy_ [version 2.0]/fantasy_/swampForest_.png" id="1_ytkxu"]
@@ -991,6 +991,9 @@ sources/4 = SubResource("TileSetAtlasSource_fu0aq")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vs77s"]
 size = Vector2(37, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfnlk"]
+size = Vector2(24, 19)
+
 [node name="forest_lvl" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_oy1hi")
@@ -1041,5 +1044,12 @@ position = Vector2(492, 342)
 [node name="burn_tree" parent="." instance=ExtResource("8_um48x")]
 position = Vector2(464, 306)
 
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(464, 286.5)
+shape = SubResource("RectangleShape2D_kfnlk")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

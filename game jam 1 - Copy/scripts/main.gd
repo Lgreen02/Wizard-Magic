@@ -21,9 +21,12 @@ func _process(delta):
 
 func _on_forest_lvl_body_entered(body):
 	if body.has_method("player"):
-		get_tree().change_scene_to_file("res://scenes/forest_lvl.tscn")
-	
-	
+		if !global.forest_burned_down:
+			get_tree().change_scene_to_file("res://scenes/forest_lvl.tscn")
+		else:
+			global.prev_scene = "west"
+			get_tree().change_scene_to_file("res://scenes/forest_lvl_dead.tscn")
+		
 
 
 func _on_center_body_entered(body):
