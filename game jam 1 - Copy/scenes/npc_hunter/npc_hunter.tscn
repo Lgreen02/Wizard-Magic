@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://bexv440hgnle0"]
+
+[ext_resource type="Script" path="res://scenes/npc_hunter/npc_hunter.gd" id="1_4gtxn"]
+[ext_resource type="Texture2D" uid="uid://ihh14or4d7v8" path="res://scenes/npc_hunter/Idle.png" id="2_o8me4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofbfn"]
+size = Vector2(37, 44)
+
+[sub_resource type="Animation" id="Animation_tl7dn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lyvxl"]
+resource_name = "idle"
+length = 0.7515
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_o8me4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dcjaa"]
+_data = {
+"RESET": SubResource("Animation_tl7dn"),
+"idle": SubResource("Animation_lyvxl")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2apeg"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ed62u"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_eardt"]
+states/idle/node = SubResource("AnimationNodeAnimation_2apeg")
+states/idle/position = Vector2(473, 112)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ed62u")]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyg5v"]
+radius = 20.2237
+
+[node name="NPC_Hunter" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_4gtxn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_o8me4")
+flip_h = true
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_ofbfn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dcjaa")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_eardt")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="hunter_detection" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hunter_detection"]
+shape = SubResource("CircleShape2D_jyg5v")
+
+[connection signal="area_entered" from="hunter_detection" to="." method="_on_hunter_detection_area_entered"]
+[connection signal="area_exited" from="hunter_detection" to="." method="_on_hunter_detection_area_exited"]

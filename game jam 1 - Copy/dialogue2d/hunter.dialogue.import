@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://k1kkird8652u"
+path="res://.godot/imported/hunter.dialogue-f55dbc8791b9b7feaa49deb5c443cef8.tres"
+
+[deps]
+
+source_file="res://dialogue2d/hunter.dialogue"
+dest_files=["res://.godot/imported/hunter.dialogue-f55dbc8791b9b7feaa49deb5c443cef8.tres"]
+
+[params]
+
+defaults=true

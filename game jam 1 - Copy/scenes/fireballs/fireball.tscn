@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://dysytxvhcwe5v"]
+
+[ext_resource type="Script" path="res://scenes/fireballs/fireball.gd" id="1_ptkei"]
+[ext_resource type="Texture2D" uid="uid://68qoiih24axp" path="res://art/overworld_sprites/Serene_Village_revamped_v1.9/fireball_V_1_1/B500-2.PNG" id="2_l4mny"]
+[ext_resource type="Texture2D" uid="uid://qmq1ry2vw1dv" path="res://art/overworld_sprites/Serene_Village_revamped_v1.9/fireball_V_1_1/B500-3.PNG" id="3_vxuht"]
+[ext_resource type="Texture2D" uid="uid://dbtvree4gqyll" path="res://art/overworld_sprites/Serene_Village_revamped_v1.9/fireball_V_1_1/B500-4.PNG" id="4_yfhop"]
+[ext_resource type="Texture2D" uid="uid://ch6rw4uy0d4g7" path="res://art/overworld_sprites/Serene_Village_revamped_v1.9/fireball_V_1_1/FB500-1.png" id="5_l7eev"]
+[ext_resource type="Texture2D" uid="uid://0w7b26ncadc0" path="res://art/overworld_sprites/Serene_Village_revamped_v1.9/fireball_V_1_1/FB500-2.png" id="6_vni25"]
+[ext_resource type="Texture2D" uid="uid://b4wmgh2mtyyja" path="res://art/overworld_sprites/Serene_Village_revamped_v1.9/fireball_V_1_1/FB500-3.png" id="7_8pt71"]
+[ext_resource type="Texture2D" uid="uid://dg8fb0ma6minw" path="res://art/overworld_sprites/Serene_Village_revamped_v1.9/fireball_V_1_1/FB500-4.png" id="8_1cxyh"]
+[ext_resource type="Texture2D" uid="uid://b8f810kwe8iie" path="res://art/overworld_sprites/Serene_Village_revamped_v1.9/fireball_V_1_1/FB500-5.png" id="9_2hi25"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_imbw8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l4mny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vxuht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yfhop")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_l7eev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vni25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8pt71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1cxyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2hi25")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3fjm"]
+radius = 4.0
+
+[node name="fireball" type="AnimatableBody2D"]
+sync_to_physics = false
+script = ExtResource("1_ptkei")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_imbw8")
+animation = &"idle"
+frame_progress = 0.463706
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g3fjm")

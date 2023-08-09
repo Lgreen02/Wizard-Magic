@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyrl8vdf6cjxy"]
+
+[ext_resource type="PackedScene" uid="uid://unx31khsi2op" path="res://scenes/burnable_tree/burnable_tree.tscn" id="1_vtcmv"]
+[ext_resource type="Script" path="res://burnable_treeBIG.gd" id="2_syw1e"]
+
+[node name="burnable_treeBIG" instance=ExtResource("1_vtcmv")]
+script = ExtResource("2_syw1e")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-4, -6)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(12, -6)
