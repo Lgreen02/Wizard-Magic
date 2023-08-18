@@ -17,7 +17,7 @@ signal facing_direction_changed(facing_right : bool)
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_tree: AnimationTree = $AnimationTree
-@onready var state_machine: CharacterStateMachine = $CharacterStateMachine
+@onready var state_machine: CharacterStateMachinePlayer = $CharacterStateMachine
 
 @onready var projectile_position_right = $right
 @onready var projectile_position_left = $left

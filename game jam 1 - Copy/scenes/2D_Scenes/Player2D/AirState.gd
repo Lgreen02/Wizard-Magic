@@ -16,7 +16,6 @@ func state_process(delta):
 		next_state = landing_state
 
 func state_input(event : InputEvent):
-	print(global.double_jump)
 	if(event.is_action_pressed("attack_air")):
 		attack_air()
 	if(event.is_action_pressed("jump") && !has_double_jumped && global.double_jump == true):
