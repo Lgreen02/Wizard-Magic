@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://scenes/burnable_tree/burnable_tree.gd" id="1_032e2"]
 [ext_resource type="Texture2D" uid="uid://cny51eiuuvtyw" path="res://art/Decors.png" id="2_4ui3q"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_u07v7"]
-radius = 17.775
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ad2yq"]
+a = Vector2(-9.21053, -18.123)
+b = Vector2(-18.4211, 14.5631)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sipex"]
 size = Vector2(69, 100)
@@ -15,7 +16,7 @@ script = ExtResource("1_032e2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(18, -2)
 scale = Vector2(1.52, 3.09)
-shape = SubResource("CircleShape2D_u07v7")
+shape = SubResource("SegmentShape2D_ad2yq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)

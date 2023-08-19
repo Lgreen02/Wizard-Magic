@@ -13,6 +13,7 @@ var mother_tree = false
 var forest_burned_down = false
 var can_push = false
 
+var facing_right = false
 
 var player_health = 100
 var player_xp = 0

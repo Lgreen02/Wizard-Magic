@@ -1,6 +1,6 @@
 extends Node
 
-class_name CharacterStateMachine
+class_name CharacterStateMachinePlayer
 
 @export var character : CharacterBody2D 
 @export var current_state : State
