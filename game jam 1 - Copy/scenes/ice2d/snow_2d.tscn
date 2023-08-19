@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfuucki7uiagt"]
+[gd_scene load_steps=16 format=3 uid="uid://cfuucki7uiagt"]
 
 [ext_resource type="Texture2D" uid="uid://d3xjr3gdquujm" path="res://scenes/ice2d/SnowTiles.png" id="1_6pld5"]
 [ext_resource type="PackedScene" uid="uid://b62337ujxoxhi" path="res://scenes/2D_Scenes/Player2D/player2D.tscn" id="1_bt2nh"]
+[ext_resource type="Script" path="res://scenes/ice2d/snow_2d.gd" id="1_xo1p2"]
 [ext_resource type="PackedScene" uid="uid://dqhk63wy8u8l8" path="res://scenes/UI/UI.tscn" id="2_u0p0c"]
 [ext_resource type="Script" path="res://scenes/paralax_background/parallax_background.gd" id="4_mhrmh"]
 [ext_resource type="Texture2D" uid="uid://gt2j6ebtnm6a" path="res://scenes/ice2d/4.png" id="5_rl04b"]
@@ -921,7 +922,11 @@ texture = ExtResource("1_6pld5")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0xkkd")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5wwa"]
+size = Vector2(7954, 674)
+
 [node name="snow_2d" type="Node2D"]
+script = ExtResource("1_xo1p2")
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j6eyq")
@@ -1002,3 +1007,11 @@ metadata/_edit_lock_ = true
 
 [node name="Enemy" parent="." instance=ExtResource("9_cqlrh")]
 position = Vector2(594, 110)
+
+[node name="FallBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallBox"]
+position = Vector2(5660, 889)
+shape = SubResource("RectangleShape2D_q5wwa")
+
+[connection signal="body_entered" from="FallBox" to="." method="_on_fall_box_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://sphhtutgpk5v"]
+[gd_scene load_steps=19 format=3 uid="uid://sphhtutgpk5v"]
 
 [ext_resource type="Script" path="res://scenes/forest2d/forest2d.gd" id="1_88uuf"]
 [ext_resource type="PackedScene" uid="uid://unx31khsi2op" path="res://scenes/burnable_tree/burnable_tree.tscn" id="2_3grfc"]
@@ -233,6 +233,9 @@ sources/0 = SubResource("TileSetAtlasSource_qpen8")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0m60t"]
 size = Vector2(148, 103.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4abg"]
+size = Vector2(15572.5, 130.5)
+
 [node name="Forest2D" type="Node2D"]
 script = ExtResource("1_88uuf")
 
@@ -342,4 +345,13 @@ shape = SubResource("RectangleShape2D_0m60t")
 position = Vector2(935, 108)
 scale = Vector2(2.04, 2.04)
 
+[node name="FallBox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallBox"]
+position = Vector2(7786.75, 614.25)
+shape = SubResource("RectangleShape2D_i4abg")
+
 [connection signal="body_entered" from="Transition" to="." method="_on_transition_body_entered"]
+[connection signal="body_entered" from="FallBox" to="." method="_on_fall_box_body_entered"]

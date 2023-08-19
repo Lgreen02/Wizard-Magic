@@ -11,3 +11,11 @@ func _on_transition_body_entered(body: Node2D) -> void:
 	print("is inside to tp")
 	can_tp = true
 	
+
+
+func _on_fall_box_body_entered(body):
+	if body.has_method("player"):
+		print("fall box")
+		$Player.position.x = 639
+		$Player.position.y = 108
+
