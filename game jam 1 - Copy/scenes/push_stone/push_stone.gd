@@ -7,17 +7,19 @@ var move_up = false
 var move_down = false
 
 func _physics_process(delta):
-	if move_right:
-		distance = Vector2.RIGHT * 0.75
-	if move_left:
-		distance = Vector2.LEFT * 0.75
-	if !move_left and !move_right:
-		distance = Vector2.ZERO
-	if move_down:
-		distance = Vector2.ZERO
-	
-	
-	move_and_collide(distance)
+	if global.can_push:
+			
+		if move_right:
+			distance = Vector2.RIGHT * 0.75
+		if move_left:
+			distance = Vector2.LEFT * 0.75
+		if !move_left and !move_right:
+			distance = Vector2.ZERO
+		if move_down:
+			distance = Vector2.ZERO
+		
+		
+		move_and_collide(distance)
 
 func _on_right_body_entered(body):
 	if body.has_method("player") and !move_right:

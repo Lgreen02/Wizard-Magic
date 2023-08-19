@@ -2,6 +2,7 @@ extends Node2D
 
 var skelly_talk = false
 var forest_level_transition = false
+var sign_read = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,8 @@ func _process(delta):
 	change_scenes()
 	if skelly_talk and Input.is_action_just_pressed("interact"):
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/skelly_dead.dialogue"))
+	if sign_read and Input.is_action_just_pressed("interact"):
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"))
 
 
 func _on_area_2d_body_entered(body):
@@ -46,3 +49,12 @@ func _on_area_2d_area_exited(area):
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		forest_level_transition = true
+
+
+func _on_area_2d_3_body_entered(body):
+	if body.has_method("player"):
+		sign_read = true
+
+func _on_area_2d_3_body_exited(body):
+	if body.has_method("player"):
+		sign_read = false

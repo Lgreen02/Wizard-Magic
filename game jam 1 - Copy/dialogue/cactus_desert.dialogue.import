@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://be4u4sxpg5vuk"
+path="res://.godot/imported/cactus_desert.dialogue-587a21d3aab9f93841c5e1be7e70f0ba.tres"
+
+[deps]
+
+source_file="res://dialogue/cactus_desert.dialogue"
+dest_files=["res://.godot/imported/cactus_desert.dialogue-587a21d3aab9f93841c5e1be7e70f0ba.tres"]
+
+[params]
+
+defaults=true

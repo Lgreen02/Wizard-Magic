@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://bva02wgc0isuk"
+path="res://.godot/imported/magic_muscles.dialogue-67aa665359ff79b6b7e7dcf5a974cde0.tres"
+
+[deps]
+
+source_file="res://dialogue/magic_muscles.dialogue"
+dest_files=["res://.godot/imported/magic_muscles.dialogue-67aa665359ff79b6b7e7dcf5a974cde0.tres"]
+
+[params]
+
+defaults=true
