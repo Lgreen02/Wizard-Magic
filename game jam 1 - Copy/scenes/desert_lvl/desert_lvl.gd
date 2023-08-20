@@ -3,7 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if global.prev_scene == "desert2d":
+	if global.prev_scene == "desert2D":
 		$Player.position.x = 499
 		$Player.position.y = 424
 

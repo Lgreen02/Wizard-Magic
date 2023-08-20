@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj2pvowy688ug"]
+
+[ext_resource type="Script" path="res://scenes/paralax_background/parallax_background.gd" id="1_7s2x4"]
+[ext_resource type="Texture2D" uid="uid://c6jvvcvq7lnpd" path="res://scenes/UI/parallax-forest-back-trees.png" id="2_avqn2"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+offset = Vector2(0, 292.2)
+transform = Transform2D(1, 0, 0, 1, 0, 292.2)
+script = ExtResource("1_7s2x4")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1379, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(585.16, 32.7999)
+scale = Vector2(4.31619, 4.0625)
+texture = ExtResource("2_avqn2")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]

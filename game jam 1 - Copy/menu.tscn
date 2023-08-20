@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://8afg8le3c8ha"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_qs0jp"]
+[ext_resource type="Script" path="res://scenes/paralax_background/parallax_background.gd" id="2_s8kqp"]
+[ext_resource type="Texture2D" uid="uid://c6jvvcvq7lnpd" path="res://scenes/UI/parallax-forest-back-trees.png" id="3_ystwk"]
+[ext_resource type="Texture2D" uid="uid://bxk72sp8it2og" path="res://scenes/UI/parallax-forest-middle-trees.png" id="4_jjm45"]
+[ext_resource type="Texture2D" uid="uid://u7eruwepcle0" path="res://scenes/UI/parallax-forest-front-trees.png" id="5_6bmrs"]
+[ext_resource type="Texture2D" uid="uid://d2kk5bjrd73tr" path="res://scenes/UI/parallax-forest-lights.png" id="6_lknhi"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qs0jp")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+offset_left = -23.0
+offset_right = 23.0
+offset_bottom = 31.0
+text = "Start"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 292.2)
+transform = Transform2D(1, 0, 0, 1, 0, 292.2)
+script = ExtResource("2_s8kqp")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1379, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(580.645, 33.3)
+scale = Vector2(4.25642, 4.00625)
+texture = ExtResource("3_ystwk")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 292.2)
+transform = Transform2D(1, 0, 0, 1, 0, 292.2)
+script = ExtResource("2_s8kqp")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2(1379, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(580.645, 33.3)
+scale = Vector2(4.25642, 4.00625)
+texture = ExtResource("4_jjm45")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+[node name="ParallaxBackground3" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 292.2)
+transform = Transform2D(1, 0, 0, 1, 0, 292.2)
+script = ExtResource("2_s8kqp")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground3"]
+motion_mirroring = Vector2(1379, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/ParallaxLayer"]
+position = Vector2(580.645, 33.3)
+scale = Vector2(4.25642, 4.00625)
+texture = ExtResource("5_6bmrs")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground3"]
+
+[node name="ParallaxBackground4" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 292.2)
+transform = Transform2D(1, 0, 0, 1, 0, 292.2)
+script = ExtResource("2_s8kqp")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground4"]
+motion_mirroring = Vector2(1379, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground4/ParallaxLayer"]
+position = Vector2(580.645, 33.3)
+scale = Vector2(4.25642, 4.00625)
+texture = ExtResource("6_lknhi")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground4"]
