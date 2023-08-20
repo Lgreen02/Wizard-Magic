@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dsom8asvta3wx"]
+[gd_scene load_steps=23 format=3 uid="uid://dsom8asvta3wx"]
 
 [ext_resource type="Texture2D" uid="uid://ddsy6emwgmldm" path="res://art/overworld_sprites/fantasy_ [version 2.0]/forest_/forest_ [bridgeHorizontal].png" id="1_4lj2a"]
 [ext_resource type="PackedScene" uid="uid://bq3i2baahqg4m" path="res://scenes/center/floating_rock.tscn" id="1_b7f8o"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://d17mqaiprih6m" path="res://scenes/player/player.tscn" id="7_cya1f"]
 [ext_resource type="Texture2D" uid="uid://d4do4k5xlaev5" path="res://art/overworld_sprites/fantasy_ [version 2.0]/tundra_/tundra_ [ice].png" id="7_s5pah"]
 [ext_resource type="Texture2D" uid="uid://dr05d2x8r1m5e" path="res://art/overworld_sprites/fantasy_ [version 2.0]/tundra_/tundra_.png" id="8_qnwb4"]
-[ext_resource type="PackedScene" uid="uid://bhquqa76uchg5" path="res://scenes/push_stone/push_stone.tscn" id="11_cm3oa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q7uhs"]
 
@@ -3149,9 +3148,6 @@ position = Vector2(876, 400)
 
 [node name="AnimatableBody2D8" parent="." instance=ExtResource("1_b7f8o")]
 position = Vector2(1032, 399)
-
-[node name="push_stone" parent="." instance=ExtResource("11_cm3oa")]
-position = Vector2(709, 355)
 
 [connection signal="area_entered" from="sign" to="." method="_on_sign_area_entered"]
 [connection signal="area_exited" from="sign" to="." method="_on_sign_area_exited"]
