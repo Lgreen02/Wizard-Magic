@@ -77,7 +77,7 @@ func _input(event):
 	if(state_machine.current_state == attack_state):
 		pass
 	else:
-		if event.is_action_pressed("cast") && is_on_floor():
+		if event.is_action_pressed("cast") && is_on_floor() && global.can_fireball:
 			timer.start()
 #		_on_f_ball_timer_timeout()
 #		var projectile_instance = fireball.instantiate()

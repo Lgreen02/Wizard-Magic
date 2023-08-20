@@ -20,7 +20,7 @@ func state_input(event : InputEvent):
 		jump()
 	if(event.is_action_pressed("attack")):
 		attack()
-	if(event.is_action_pressed("cast")):
+	if(event.is_action_pressed("cast") && global.can_fireball):
 		print(global.player_xp)
 		fireball()
 
