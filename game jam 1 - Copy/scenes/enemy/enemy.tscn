@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://1u2lr1yq1qqn"]
+[gd_scene load_steps=35 format=3 uid="uid://1u2lr1yq1qqn"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemynew.gd" id="1_vlq5w"]
 [ext_resource type="Texture2D" uid="uid://c3r3kngqi7ev3" path="res://scenes/enemy/Skeleton/Walk.png" id="1_x4d8q"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://scenes/2D_Scenes/Player2D/State.gd" id="7_jljjl"]
 [ext_resource type="Script" path="res://scenes/enemy/Hit.gd" id="8_ejful"]
 [ext_resource type="Script" path="res://scenes/enemy/Attack.gd" id="10_5bhn0"]
-[ext_resource type="Script" path="res://scenes/enemy/LabelEnemy.gd" id="12_fcnps"]
 
 [sub_resource type="Animation" id="Animation_ux535"]
 length = 0.001
@@ -384,15 +383,6 @@ script = ExtResource("5_f7qoj")
 health = null
 dead_animation_name = null
 
-[node name="Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
-offset_left = -29.0
-offset_top = -86.0
-offset_right = 20.0
-offset_bottom = -60.0
-text = "State: "
-script = ExtResource("12_fcnps")
-state_machine = NodePath("../CharacterStateMachine")
-
 [node name="RightDetection" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
@@ -432,11 +422,11 @@ shape = SubResource("RectangleShape2D_e7lx4")
 [connection signal="timeout" from="CharacterStateMachine/Attack/HealthTimer" to="CharacterStateMachine/Attack" method="_on_health_timer_timeout"]
 [connection signal="body_entered" from="RightDetection" to="CharacterStateMachine/Walk" method="_on_right_detection_body_entered"]
 [connection signal="body_entered" from="LeftDetection" to="CharacterStateMachine/Walk" method="_on_left_detection_body_entered"]
-[connection signal="body_entered" from="HitboxLeft" to="." method="_on_hitbox_left_body_entered"]
 [connection signal="body_entered" from="HitboxLeft" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="HitboxLeft" to="." method="_on_hitbox_left_body_entered"]
 [connection signal="body_exited" from="HitboxLeft" to="." method="_on_hitbox_left_body_exited"]
 [connection signal="body_exited" from="HitboxLeft" to="." method="_on_hitbox_body_exited"]
-[connection signal="body_entered" from="HitboxRight" to="." method="_on_hitbox_right_body_entered"]
 [connection signal="body_entered" from="HitboxRight" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="HitboxRight" to="." method="_on_hitbox_right_body_entered"]
 [connection signal="body_exited" from="HitboxRight" to="." method="_on_hitbox_right_body_exited"]
 [connection signal="body_exited" from="HitboxRight" to="." method="_on_hitbox_body_exited"]

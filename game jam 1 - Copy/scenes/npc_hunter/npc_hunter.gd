@@ -31,4 +31,5 @@ func _on_hunter_detection_area_entered(area: Area2D) -> void:
 
 func _on_hunter_detection_area_exited(area: Area2D) -> void:
 	print("hunter area exited")
+	hunter_talk = false
 	pass # Replace with function body.
