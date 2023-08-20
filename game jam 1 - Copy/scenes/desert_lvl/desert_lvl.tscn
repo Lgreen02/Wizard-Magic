@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dox3eg1kf7ed"]
+[gd_scene load_steps=18 format=3 uid="uid://dox3eg1kf7ed"]
 
 [ext_resource type="Script" path="res://scenes/desert_lvl/desert_lvl.gd" id="1_c8pt8"]
 [ext_resource type="Texture2D" uid="uid://ux53fls4jhkk" path="res://art/overworld_sprites/vacaroxa--generic-old-west-graphics--v.1.0/vacaroxa--generic-old-west-graphics--v.1.0/Generic Old West Graphicis/Buildings/buildings.png" id="1_hw6do"]
@@ -2905,6 +2905,9 @@ sources/5 = SubResource("TileSetAtlasSource_jsd75")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ww6ss"]
 size = Vector2(32, 36)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wro8k"]
+size = Vector2(18.5, 16)
+
 [node name="desert_lvl" type="Node2D"]
 script = ExtResource("1_c8pt8")
 
@@ -2940,4 +2943,13 @@ limit_bottom = 630
 position = Vector2(484, 650)
 shape = SubResource("RectangleShape2D_ww6ss")
 
+[node name="transition_box" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="transition_box"]
+position = Vector2(497.25, 384)
+shape = SubResource("RectangleShape2D_wro8k")
+
 [connection signal="body_entered" from="east" to="." method="_on_east_body_entered"]
+[connection signal="body_entered" from="transition_box" to="." method="_on_transition_box_body_entered"]

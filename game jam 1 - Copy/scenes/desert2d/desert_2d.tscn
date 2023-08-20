@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c68fmuu2ey68t"]
+[gd_scene load_steps=15 format=3 uid="uid://c68fmuu2ey68t"]
 
 [ext_resource type="PackedScene" uid="uid://b62337ujxoxhi" path="res://scenes/2D_Scenes/Player2D/player2D.tscn" id="1_7tmkq"]
 [ext_resource type="Script" path="res://scenes/desert2d/desert_2d.gd" id="1_sm253"]
@@ -428,6 +428,9 @@ sources/0 = SubResource("TileSetAtlasSource_bmn1m")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4l706"]
 size = Vector2(13353, 548.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_geyob"]
+size = Vector2(246, 25)
+
 [node name="Desert2D" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_sm253")
 player = NodePath("Player")
@@ -497,6 +500,13 @@ monitorable = false
 position = Vector2(6554.5, 908.25)
 shape = SubResource("RectangleShape2D_4l706")
 
+[node name="TransitionBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionBox"]
+position = Vector2(12935, 589.5)
+shape = SubResource("RectangleShape2D_geyob")
+
 [connection signal="area_entered" from="FallBox" to="FallBox" method="_on_area_entered"]
 [connection signal="body_entered" from="FallBox" to="." method="_on_fall_box_body_entered"]
 [connection signal="body_entered" from="FallBox" to="FallBox" method="_on_body_entered"]
+[connection signal="body_entered" from="TransitionBox" to="." method="_on_transition_box_body_entered"]

@@ -8,7 +8,6 @@ var move_down = false
 
 func _physics_process(delta):
 	if global.can_push:
-			
 		if move_right:
 			distance = Vector2.RIGHT * 0.75
 		if move_left:

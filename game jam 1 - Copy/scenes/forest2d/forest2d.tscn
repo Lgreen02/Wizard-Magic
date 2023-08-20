@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bn5b3aty05d7e" path="res://art/forestandcave.jpg" id="9_rqctk"]
 [ext_resource type="Texture2D" uid="uid://croburv6sd8bh" path="res://scenes/forest2d/4.png" id="10_gurgj"]
 [ext_resource type="Texture2D" uid="uid://bx0f8nllwrbwr" path="res://scenes/forest2d/3.png" id="11_5eb6y"]
-[ext_resource type="PackedScene" uid="uid://dcldld5bnhmx7" path="res://scenes/forest2d/enemyTest.tscn" id="13_wevnq"]
+[ext_resource type="PackedScene" path="res://scenes/forest2d/enemyTest.tscn" id="13_wevnq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nbfyb"]
 texture = ExtResource("3_yty0v")

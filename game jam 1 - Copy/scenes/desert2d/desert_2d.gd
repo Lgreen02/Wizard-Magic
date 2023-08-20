@@ -18,3 +18,9 @@ func _on_fall_box_body_entered(body):
 		print("player in fall box")
 		player.position.x = 33
 		player.position.y = 375
+
+
+func _on_transition_box_body_entered(body):
+	if body.has_method("player"):
+		global.prev_scene = "desert2D"
+		get_tree().change_scene_to_file("res://scenes/desert_lvl/desert_lvl.tscn")

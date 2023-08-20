@@ -18,3 +18,9 @@ func _on_fall_box_body_entered(body):
 		$Player.position.x = 71
 		$Player.position.y = -68
 
+
+
+func _on_transition_box_body_entered(body):
+	if body.has_method("player"):
+		get_tree().change_scene_to_file("res://scenes/ice_lvl/ice_lvl.tscn")
+		global.prev_scene = "ice2D"
