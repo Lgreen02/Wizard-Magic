@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://croburv6sd8bh" path="res://scenes/forest2d/4.png" id="10_gurgj"]
 [ext_resource type="Texture2D" uid="uid://bx0f8nllwrbwr" path="res://scenes/forest2d/3.png" id="11_5eb6y"]
 [ext_resource type="Texture2D" uid="uid://dkd8jfsj2d8fr" path="res://art/portal5_spritesheet.png" id="13_v6mq0"]
-[ext_resource type="PackedScene" uid="uid://dcldld5bnhmx7" path="res://scenes/forest2d/enemyTest.tscn" id="13_wevnq"]
+[ext_resource type="PackedScene" path="res://scenes/forest2d/enemyTest.tscn" id="13_wevnq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nbfyb"]
 texture = ExtResource("3_yty0v")
