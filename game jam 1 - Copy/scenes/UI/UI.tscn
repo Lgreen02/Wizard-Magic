@@ -53,11 +53,3 @@ Double/Jump: SPACE
 Attack: F
 Interact: E
 Spell: Q"
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-anchors_preset = -1
-anchor_top = 0.045
-anchor_right = 0.196
-anchor_bottom = 0.087
-offset_right = 0.543991
-offset_bottom = -0.216

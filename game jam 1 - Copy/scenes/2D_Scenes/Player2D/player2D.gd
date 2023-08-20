@@ -28,7 +28,7 @@ signal facing_direction_changed(facing_right : bool)
 
 
 func _ready():
-	global.setGlobalValue(25)
+	global.setGlobalValue(100)
 	animation_tree.active = true
 
 func _physics_process(delta: float) -> void:
