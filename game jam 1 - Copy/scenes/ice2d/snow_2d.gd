@@ -12,6 +12,7 @@ func _process(delta):
 
 
 func _on_fall_box_body_entered(body):
+	print("fall box entered")
 	if body.has_method("player"):
 		print("fall box")
 		$Player.position.x = 71

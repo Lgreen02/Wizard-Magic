@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://1ib0b4lkkfs6"]
 
 [ext_resource type="Script" path="res://scenes/east/east.gd" id="1_i72o8"]
-[ext_resource type="Texture2D" uid="uid://cev01hsaoadhe" path="res://art/overworld_sprites/fantasy_ [version 2.0]/fantasy_/forestDesert_.png" id="1_khb2s"]
+[ext_resource type="Texture2D" uid="uid://cev01hsaoadhe" path="res://art/overworld_sprites/fantasy_ [version 2.0]/desert_/fantasy_/forestDesert_.png" id="1_khb2s"]
 [ext_resource type="Texture2D" uid="uid://bayl3kf4wopd5" path="res://art/overworld_sprites/fantasy_ [version 2.0]/desert_/quickSand_.png" id="2_e4qwb"]
 [ext_resource type="Texture2D" uid="uid://b5h7v3j04404w" path="res://art/overworld_sprites/fantasy_ [version 2.0]/desert_/desert_ [resources].png" id="3_hwy3e"]
 [ext_resource type="Texture2D" uid="uid://p0brg38qlvm4" path="res://art/overworld_sprites/fantasy_ [version 2.0]/desert_/desert_ [fencesAndWalls].png" id="4_dd8jy"]

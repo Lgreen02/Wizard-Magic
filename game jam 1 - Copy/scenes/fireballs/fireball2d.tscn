@@ -48,14 +48,16 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3fjm"]
-radius = 8.53232
+radius = 7.30116
 
 [node name="fireball" type="AnimatableBody2D"]
+collision_layer = 0
+collision_mask = 13
 sync_to_physics = false
 script = ExtResource("1_maeor")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.185, 0.185)
+scale = Vector2(0.13, 0.13)
 sprite_frames = SubResource("SpriteFrames_imbw8")
 animation = &"idle"
 frame_progress = 0.463706

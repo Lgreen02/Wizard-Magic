@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqhk63wy8u8l8"]
+[gd_scene load_steps=4 format=3 uid="uid://dqhk63wy8u8l8"]
 
 [ext_resource type="Script" path="res://scenes/UI/UI.gd" id="1_fi87e"]
+[ext_resource type="Script" path="res://scenes/UI/amount.gd" id="2_eup7f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_feh7s"]
 resource_local_to_scene = true
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_fi87e")
+playerHealth = null
 
 [node name="Health" type="Control" parent="."]
 layout_mode = 3
@@ -35,6 +37,7 @@ offset_bottom = -61.72
 grow_horizontal = 2
 text = "1"
 label_settings = SubResource("LabelSettings_feh7s")
+script = ExtResource("2_eup7f")
 
 [node name="Label" type="Label" parent="Health"]
 layout_mode = 1

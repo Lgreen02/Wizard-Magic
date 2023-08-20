@@ -19,8 +19,9 @@ var playerDamage : bool = false
 @onready var state_machine: CharacterStateMachine = $CharacterStateMachine
 
 @onready var detectionRight = $DetectionRight/CollisionShape2D
-@onready var detectArea = $DetectionRight
 @onready var detectionLeft = $DetectionLeft/CollisionShape2D
+
+@onready var player : Player
 
 var hitbox: CollisionShape2D
 var facing_player: bool = false
@@ -55,11 +56,19 @@ func _physics_process(delta: float) -> void:
 
 func update_facing_direction():
 	if _velocity.x > 0:
+		# Right
 		global.facing_right = true
+		$HitboxRight.monitoring = true
+		$LeftDetection.monitoring = false
+		$RightDetection.monitoring = true
 #		print(global.facing_right)
 		sprite.scale.x = 1
 	else:
+		# Left 
 		global.facing_right = false
+		$HitboxLeft.monitoring = true
+		$RightDetection.monitoring = false
+		$LeftDetection.monitoring = true
 #		print(global.facing_right)
 		sprite.scale.x = -1
 	emit_signal("facing_direction_changed", !sprite.flip_h)
@@ -69,10 +78,10 @@ var playerInsideHurtbox = false
 func hit():
 	print("hit function entered")
 	print(global.player_health)
-	$HitboxLeft.monitoring = true
-	$HitboxRight.monitoring = true
 	if(playerInsideHurtbox):
+		print("playerHurtbox is true")
 		global.player_health -=15
+		print("after player health deduction")
 #		emit_signal("enemy_hit", 15)
 	print("current Health:")
 	print(global.player_health)
@@ -84,25 +93,23 @@ func end_of_hit():
 
 func _on_hitbox_left_body_entered(body: Node2D) -> void:
 	print("left hitbox entered")
-	if body is Player:
+	if body.has_method("player"):
 		playerInsideHurtbox = true
-		hit()
+#		hit()
 
 
 func _on_hitbox_left_body_exited(body: Node2D) -> void:
 	print("hitbox exited")
-	if body is Player:
-		playerInsideHurtbox = false
+	playerInsideHurtbox = false
 
 
 func _on_hitbox_right_body_entered(body: Node2D) -> void:
 	print("right hitbox entered")
-	if body is Player:
+	if body.has_method("player"):
 		playerInsideHurtbox = true
-		hit()
+#		hit()
 
 
 func _on_hitbox_right_body_exited(body: Node2D) -> void:
 	print("hitbox exited")
-	if body is Player:
-		playerInsideHurtbox = false
+	playerInsideHurtbox = false

@@ -8,11 +8,11 @@ class_name WalkState
 
 func _on_right_detection_body_entered(body: Node2D) -> void:
 	print("entered right body")
-	if global.facing_right: 
+	if global.facing_right == true && body.has_method("player"): 
 		next_state = attack_state
 
 
 func _on_left_detection_body_entered(body: Node2D) -> void:
 	print("entered left body")
-	if !global.facing_right: 
+	if global.facing_right == false && body.has_method("player"): 
 		next_state = attack_state

@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=19 format=3 uid="uid://qj8srkhgipi8"]
 
-[ext_resource type="Texture2D" uid="uid://ca4mdrp6qjvy4" path="res://art/overworld_sprites/fantasy_ [version 2.0]/fantasy_/taigaForest_.png" id="1_hmib7"]
-[ext_resource type="Texture2D" uid="uid://cko03ecl2u5xn" path="res://art/overworld_sprites/fantasy_ [version 2.0]/fantasy_/tundraTaiga_.png" id="2_gq06h"]
+[ext_resource type="Texture2D" uid="uid://ca4mdrp6qjvy4" path="res://art/overworld_sprites/fantasy_ [version 2.0]/desert_/fantasy_/taigaForest_.png" id="1_hmib7"]
+[ext_resource type="Texture2D" uid="uid://cko03ecl2u5xn" path="res://art/overworld_sprites/fantasy_ [version 2.0]/desert_/fantasy_/tundraTaiga_.png" id="2_gq06h"]
 [ext_resource type="Texture2D" uid="uid://oan4kcfwmkgr" path="res://art/overworld_sprites/fantasy_ [version 2.0]/taiga_/taigaPath_.png" id="3_0iqta"]
 [ext_resource type="Texture2D" uid="uid://68jimgjlvldu" path="res://art/overworld_sprites/fantasy_ [version 2.0]/taiga_/taiga_ [resources].png" id="4_4xkot"]
 [ext_resource type="Texture2D" uid="uid://dc701lb41bbcv" path="res://art/overworld_sprites/fantasy_ [version 2.0]/taiga_/taiga_.png" id="5_5js8b"]

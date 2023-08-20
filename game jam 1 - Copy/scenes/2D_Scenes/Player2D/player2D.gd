@@ -17,15 +17,20 @@ signal facing_direction_changed(facing_right : bool)
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_tree: AnimationTree = $AnimationTree
-@onready var state_machine: CharacterStateMachinePlayer = $CharacterStateMachine
+#@onready var state_machine: CharacterStateMachinePlayer = $CharacterStateMachine
+@export var state_machine: CharacterStateMachinePlayer
+@onready var attack_state : State = $CharacterStateMachine/Attack
+
+@onready var timer : Timer = $FBallTimer
 
 @onready var projectile_position_right = $right
 @onready var projectile_position_left = $left
 
+
 func _ready():
+	global.setGlobalValue(100)
 	animation_tree.active = true
-func player():
-	pass
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -55,17 +60,18 @@ func _physics_process(delta: float) -> void:
 	update_facing_direction()
 
 func _input(event):
-	if event.is_action_pressed("cast"):
-		var projectile_instance = fireball.instantiate()
-		if global.current_dir == "up":
-			projectile_instance.position = projectile_position_right.global_position
-		if global.current_dir == "down":
-			projectile_instance.position = projectile_position_left.global_position
-		if global.current_dir == "right":
-			projectile_instance.position = projectile_position_right.global_position
-		if global.current_dir == "left":
-			projectile_instance.position = projectile_position_left.global_position
-		game.add_child(projectile_instance)
+	if(state_machine.current_state == attack_state):
+		pass
+	else:
+		if event.is_action_pressed("cast") && is_on_floor():
+			timer.start()
+#		_on_f_ball_timer_timeout()
+#		var projectile_instance = fireball.instantiate()
+#		if global.current_dir == "right":
+#			projectile_instance.position = projectile_position_right.global_position
+#		if global.current_dir == "left":
+#			projectile_instance.position = projectile_position_left.global_position
+#		game.add_child(projectile_instance)
 
 func update_animation_parameters():
 	animation_tree.set("parameters/move/blend_position", direction.x)
@@ -93,3 +99,16 @@ func _on_detection_area_body_exited(body):
 		print("not in range")
 		npc_in_range = false
 		global.in_range = false
+
+
+func _on_f_ball_timer_timeout() -> void:
+	print("Fball Timer end")
+	var projectile_instance = fireball.instantiate()
+	if global.current_dir == "right":
+		projectile_instance.position = projectile_position_right.global_position
+	if global.current_dir == "left":
+		projectile_instance.position = projectile_position_left.global_position
+	game.add_child(projectile_instance)
+
+func player():
+	pass

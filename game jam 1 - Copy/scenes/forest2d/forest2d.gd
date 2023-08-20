@@ -13,9 +13,8 @@ func _on_transition_body_entered(body: Node2D) -> void:
 	
 
 
-func _on_fall_box_body_entered(body):
+func _on_fall_box_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		print("fall box")
-		$Player.position.x = 639
-		$Player.position.y = 108
-
+		$Player.position.x = 99
+		$Player.position.y = 62

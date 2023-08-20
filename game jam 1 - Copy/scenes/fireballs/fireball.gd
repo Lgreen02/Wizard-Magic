@@ -4,7 +4,7 @@ var death_time = 0
 var direction = "none"
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	death_time = Time.get_ticks_msec() + 2000
+	death_time = Time.get_ticks_msec() + 2500
 	direction = global.current_dir
 
 func fireball():
@@ -17,13 +17,13 @@ func _process(delta):
 func _physics_process(delta):
 
 	if direction == "right":
-		distance = Vector2.RIGHT * 100 * delta
+		distance = Vector2.RIGHT * 150 * delta
 	elif direction == "left":
-		distance = Vector2.LEFT * 100 * delta
+		distance = Vector2.LEFT * 150 * delta
 	elif direction == "up":
-		distance = Vector2.UP * 100 * delta
+		distance = Vector2.UP * 150 * delta
 	elif direction == "down":
-		distance = Vector2.DOWN * 100 * delta
+		distance = Vector2.DOWN * 150 * delta
 	$AnimatedSprite2D.play("idle")
 	var collision = move_and_collide(distance)
 	

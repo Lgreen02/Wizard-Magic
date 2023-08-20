@@ -11,9 +11,12 @@ class_name AttackState
 var timerOff : bool = false
 
 func _ready() -> void:
-	timer.start()
+#	timer.start()
+	pass
 
 func on_enter():
+	timer.start()
+	print("entered Attack state")
 	playback.travel(attack_node)
 
 func _on_animation_tree_animation_finished(anim_name):

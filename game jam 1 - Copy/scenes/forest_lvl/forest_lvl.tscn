@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://dulpkwxuq6drm"]
 
 [ext_resource type="Script" path="res://scenes/forest_lvl/forest_lvl.gd" id="1_oy1hi"]
-[ext_resource type="Texture2D" uid="uid://cssvx81ts43ve" path="res://art/overworld_sprites/fantasy_ [version 2.0]/fantasy_/swampForest_.png" id="2_1uy1i"]
+[ext_resource type="Texture2D" uid="uid://cssvx81ts43ve" path="res://art/overworld_sprites/fantasy_ [version 2.0]/desert_/fantasy_/swampForest_.png" id="2_1uy1i"]
 [ext_resource type="Texture2D" uid="uid://datksrpo40y4g" path="res://art/overworld_sprites/fantasy_ [version 2.0]/forest_/forest_ [resources].png" id="3_81mpr"]
 [ext_resource type="Texture2D" uid="uid://4el4suky16f1" path="res://art/overworld_sprites/fantasy_ [version 2.0]/forest_/forest_.png" id="4_wfchw"]
 [ext_resource type="Texture2D" uid="uid://ch11b4xs1j1o4" path="res://art/overworld_sprites/fantasy_ [version 2.0]/swamp_/swamp_.png" id="5_32eba"]

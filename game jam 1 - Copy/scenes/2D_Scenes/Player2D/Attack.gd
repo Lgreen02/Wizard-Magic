@@ -8,11 +8,6 @@ extends State
 @export var attack_air : String = "attack_air"
 @export var attack2_node : String = "attack2"
 
-#@onready var timer : Timer = $Timer
-
-#func state_input(event : InputEvent):
-#	if(event.is_action_pressed("attack")):
-#		timer.start()
 
 func _on_animation_tree_animation_finished(anim_name):
 	if(anim_name == attack1_name):

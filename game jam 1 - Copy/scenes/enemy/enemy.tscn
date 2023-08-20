@@ -299,17 +299,17 @@ graph_offset = Vector2(-396.939, 9.83871)
 size = Vector2(33, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wp8rv"]
-size = Vector2(24, 7)
+size = Vector2(21, 55)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xxhv"]
-size = Vector2(24, 7)
+size = Vector2(22, 55)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7lx4"]
-size = Vector2(25, 48)
+size = Vector2(21.75, 55)
 
 [node name="Enemy" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 5
+collision_mask = 7
 script = ExtResource("1_vlq5w")
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
@@ -372,7 +372,8 @@ return_state = NodePath("../Walk")
 can_move = false
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Attack"]
-wait_time = 0.75
+wait_time = 0.25
+one_shot = true
 
 [node name="HealthTimer" type="Timer" parent="CharacterStateMachine/Attack"]
 wait_time = 0.75
@@ -397,7 +398,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightDetection"]
-position = Vector2(26, -30.5)
+position = Vector2(24.5, -29.5)
 shape = SubResource("RectangleShape2D_wp8rv")
 
 [node name="LeftDetection" type="Area2D" parent="."]
@@ -405,7 +406,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDetection"]
-position = Vector2(-34, -30)
+position = Vector2(-33, -29.5)
 shape = SubResource("RectangleShape2D_6xxhv")
 
 [node name="HitboxLeft" type="Area2D" parent="."]
@@ -413,17 +414,15 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxLeft"]
-position = Vector2(-32, -31)
+position = Vector2(-32.75, -27.5)
 shape = SubResource("RectangleShape2D_e7lx4")
 
 [node name="HitboxRight" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
-monitoring = false
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxRight"]
-position = Vector2(26.5, -31)
+position = Vector2(24.125, -31)
 shape = SubResource("RectangleShape2D_e7lx4")
 
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
@@ -431,15 +430,13 @@ shape = SubResource("RectangleShape2D_e7lx4")
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Attack/Timer" to="CharacterStateMachine/Attack" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Attack/HealthTimer" to="CharacterStateMachine/Attack" method="_on_health_timer_timeout"]
-[connection signal="body_entered" from="RightDetection" to="CharacterStateMachine/Walk" method="_on_new_detection_body_entered"]
 [connection signal="body_entered" from="RightDetection" to="CharacterStateMachine/Walk" method="_on_right_detection_body_entered"]
-[connection signal="body_entered" from="RightDetection" to="CharacterStateMachine/Attack" method="_on_right_detection_body_entered"]
 [connection signal="body_entered" from="LeftDetection" to="CharacterStateMachine/Walk" method="_on_left_detection_body_entered"]
-[connection signal="body_entered" from="HitboxLeft" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="HitboxLeft" to="." method="_on_hitbox_left_body_entered"]
-[connection signal="body_exited" from="HitboxLeft" to="." method="_on_hitbox_body_exited"]
+[connection signal="body_entered" from="HitboxLeft" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="HitboxLeft" to="." method="_on_hitbox_left_body_exited"]
-[connection signal="body_entered" from="HitboxRight" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="HitboxLeft" to="." method="_on_hitbox_body_exited"]
 [connection signal="body_entered" from="HitboxRight" to="." method="_on_hitbox_right_body_entered"]
-[connection signal="body_exited" from="HitboxRight" to="." method="_on_hitbox_body_exited"]
+[connection signal="body_entered" from="HitboxRight" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="HitboxRight" to="." method="_on_hitbox_right_body_exited"]
+[connection signal="body_exited" from="HitboxRight" to="." method="_on_hitbox_body_exited"]
