@@ -28,7 +28,7 @@ signal facing_direction_changed(facing_right : bool)
 
 
 func _ready():
-	global.setGlobalValue(100)
+	global.setGlobalValue(25)
 	animation_tree.active = true
 
 func _physics_process(delta: float) -> void:
@@ -55,9 +55,23 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			print("Interact button worked for Ending")
 	
+	if(global.player_health == 0):
+#		global.mother_tree = false
+#		global.talked_to_master = false
+#		global.talked_to_hunter = false
+#		global.can_fireball = false
+#		global.double_jump = false
+#		global.forest_burned_down = false
+		die()
+		
+	
 	move_and_slide()
 	update_animation_parameters()
 	update_facing_direction()
+
+func die():
+	get_tree().change_scene_to_file("res://menu.tscn")
+
 
 func _input(event):
 	if(state_machine.current_state == attack_state):

@@ -4,7 +4,6 @@ extends Control
 var tree
 
 func _ready() -> void:
-	tree = get_tree()
 	pass # Replace with function body.
 
 
@@ -14,4 +13,4 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	tree.change_scene_to_file("res://scenes/introLevel2D/intro_level.tscn")
+	get_tree().change_scene_to_file("res://scenes/introLevel2D/intro_level.tscn")
